@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang=pt-br>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width, initial-scale=1.0">
+<title>Meu presente para uma pessoa especial!</title>
+</head>
+<body>
+<div class=container>
+<h1 class=titulo>Para o amor da minha vida 💜</h1>
+<p class=mensagem>
+Cada batida do meu coração é iluminada por você.
+Este site é um reflexo da luz que você trouxe pra minha vida.
+</p>
+<button id=btnAmor>Toque o amor 💫</button>
+<div id=surpresa class=hidden>
+<h2>Te amo mais do que palavras podem dizer 💖</h2>
+</div>
+</div>
+<audio id=musica loop>
+<source src=https://cdn.pixabay.com/download/audio/2022/10/03/audio_9a46dc5a90.mp3 type=audio/mpeg>
+</audio>
+<canvas id=particles></canvas>
+<style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');*{margin:0;padding:0;box-sizing:border-box}body{height:100vh;background:linear-gradient(135deg,#0d0d0d,#1a0033,#000);display:flex;justify-content:center;align-items:center;overflow:hidden;font-family:'Poppins',sans-serif;color:#fff}.container{text-align:center;z-index:2;position:relative;padding:20px}.titulo{font-size:2.5rem;text-shadow:0 0 15px #ff00ff,0 0 30px #60f;animation:pulsar 2s infinite}@keyframes pulsar{0%,100%{text-shadow:0 0 15px #f0f}50%{text-shadow:0 0 35px #0ff}}.mensagem{font-size:1.2rem;margin:20px 0 40px;color:#ccc;max-width:400px;margin-left:auto;margin-right:auto}button{background:transparent;border:2px solid #f0f;padding:12px 30px;font-size:1rem;color:#fff;border-radius:30px;cursor:pointer;transition:all .3s;text-transform:uppercase;letter-spacing:1px;box-shadow:0 0 10px #f0f}button:hover{background:#f0f;box-shadow:0 0 25px #ff00ff,0 0 50px #60f;transform:scale(1.1) rotate(1deg)}#surpresa{margin-top:40px;font-size:1.5rem;opacity:0;transform:translateY(30px);transition:all 1s ease;color:#0ff;text-shadow:0 0 15px #0ff}#surpresa.show{opacity:1;transform:translateY(0)}canvas#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:1}.hidden{display:none}@media(max-width:600px){.titulo{font-size:1.8rem}.mensagem{font-size:1rem}}</style>
+<script>const canvas=document.getElementById("particles");const ctx=canvas.getContext("2d");canvas.width=innerWidth;canvas.height=innerHeight;const hearts=[];for(let i=0;i<30;i++){hearts.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,size:Math.random()*4+2,speed:Math.random()*1+0.5,opacity:Math.random()*0.5+0.3});}
+function drawHearts(){ctx.clearRect(0,0,canvas.width,canvas.height);hearts.forEach((h)=>{ctx.beginPath();ctx.fillStyle=`rgba(255,0,255,${h.opacity})`;ctx.arc(h.x,h.y,h.size,0,Math.PI*2);ctx.fill();h.y-=h.speed;if(h.y<0)h.y=canvas.height;});requestAnimationFrame(drawHearts);}
+drawHearts();const btn=document.getElementById("btnAmor");const musica=document.getElementById("musica");const surpresa=document.getElementById("surpresa");btn.addEventListener("click",()=>{musica.play();surpresa.classList.remove("hidden");setTimeout(()=>surpresa.classList.add("show"),100);btn.textContent="💖 O amor está no ar!";btn.disabled=true;btn.style.opacity="0.7";});</script>
+</body>
+</html>
